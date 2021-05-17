@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-//useState - function
+// use
+// component name must be uppercase
+// must be in the funstion component body
+// cannot call cositionally
 
 const UseStateBasics = () => {
   // console.log(useState("hello world"));
@@ -15,7 +18,6 @@ const UseStateBasics = () => {
     } else {
       setText("random title");
     }
-    setText("hello world");
   };
   return (
     <>
