@@ -1,5 +1,5 @@
 import React from "react";
-import Setup from "./tutorial/4-forms/setup/1-controlled-inputs.js";
+import Setup from "./tutorial/4-forms/setup/2-multiple-inputs.js";
 
 function App() {
   return (
