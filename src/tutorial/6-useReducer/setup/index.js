@@ -9,15 +9,21 @@ const Index = () => {
   const [showModal, setShowModal] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (name) {
+      showModal(true);
+    } else {
+      showModal(true);
+    }
   };
 
   return (
     <>
       {showModal && <Modal />}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <div className="">
           <input type="text" value={name} onChange={(e) => e.target.value} />
         </div>
+        <button type="submit">add</button>
       </form>
     </>
   );
