@@ -5,7 +5,7 @@ import { data } from "../../../data";
 
 const reducer = (state, action) => {
   console.log(state);
-  if (action.type === "TESTING") {
+  if (action.type === "ADD_ITEM") {
     return {
       ...state,
       people: data,
@@ -26,7 +26,7 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
-      dispatch({ type: "TESTING" });
+      dispatch({ type: "ADD_ITEM" });
     } else {
       dispatch({ type: "RANDOM" });
     }
