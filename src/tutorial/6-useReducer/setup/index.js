@@ -6,9 +6,10 @@ import { data } from "../../../data";
 const reducer = (state, action) => {
   console.log(state);
   if (action.type === "ADD_ITEM") {
+    const newPeople = [...state.people, action.payload];
     return {
       ...state,
-      people: data,
+      people: newPeople,
       isModalOpen: true,
       modalContent: "item added",
     };
@@ -26,7 +27,8 @@ const Index = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
-      dispatch({ type: "ADD_ITEM" });
+      const newItem = { id: new Date().getTime().toString(), name };
+      dispatch({ type: "ADD_ITEM", payload: newItem });
     } else {
       dispatch({ type: "RANDOM" });
     }
