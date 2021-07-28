@@ -13,7 +13,7 @@ const reducer = (state, action) => {
       modalContent: "item added",
     };
   }
-  return state;
+  throw new Error("no matcing action type");
 };
 const defaultState = {
   people: [],
@@ -28,6 +28,7 @@ const Index = () => {
     if (name) {
       dispatch({ type: "TESTING" });
     } else {
+      dispatch({ type: "RANDOM" });
     }
   };
 
