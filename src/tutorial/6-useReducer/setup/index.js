@@ -14,6 +14,13 @@ const reducer = (state, action) => {
       modalContent: "item added",
     };
   }
+  if (action.type === "NO_VALUE") {
+    return {
+      ...state,
+      isModalOpen: true,
+      modalContent: "please enter value",
+    };
+  }
   throw new Error("no matcing action type");
 };
 const defaultState = {
@@ -29,8 +36,9 @@ const Index = () => {
     if (name) {
       const newItem = { id: new Date().getTime().toString(), name };
       dispatch({ type: "ADD_ITEM", payload: newItem });
+      setName("");
     } else {
-      dispatch({ type: "RANDOM" });
+      dispatch({ type: "NO_VALUE" });
     }
   };
 
