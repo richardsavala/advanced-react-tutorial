@@ -4,7 +4,6 @@ import { data } from "../../../data";
 // reducer function
 
 const reducer = (state, action) => {
-  console.log(state);
   if (action.type === "ADD_ITEM") {
     const newPeople = [...state.people, action.payload];
     return {
@@ -20,6 +19,9 @@ const reducer = (state, action) => {
       isModalOpen: true,
       modalContent: "please enter value",
     };
+  }
+  if (action.type === "CLOSE_MODAL") {
+    return { ...state, isModalOpen: false };
   }
   throw new Error("no matcing action type");
 };
@@ -41,10 +43,14 @@ const Index = () => {
       dispatch({ type: "NO_VALUE" });
     }
   };
-
+  const closeModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
   return (
     <>
-      {state.IsModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.IsModalOpen && (
+        <Modal closeModal={closeModal} modalContent={state.modalContent} />
+      )}
       <form onSubmit={handleSubmit} className="form">
         <div className="">
           <input
