@@ -4,6 +4,7 @@ import { data } from "../../../data";
 // reducer function
 
 const reducer = (state, action) => {
+  console.log(state);
   if (action.type === "ADD_ITEM") {
     const newPeople = [...state.people, action.payload];
     return {
@@ -23,7 +24,7 @@ const reducer = (state, action) => {
   if (action.type === "CLOSE_MODAL") {
     return { ...state, isModalOpen: false };
   }
-  throw new Error("no matcing action type");
+  throw new Error("no matching action type");
 };
 const defaultState = {
   people: [],
@@ -48,11 +49,11 @@ const Index = () => {
   };
   return (
     <>
-      {state.IsModalOpen && (
+      {state.isModalOpen && (
         <Modal closeModal={closeModal} modalContent={state.modalContent} />
       )}
       <form onSubmit={handleSubmit} className="form">
-        <div className="">
+        <div>
           <input
             type="text"
             value={name}
@@ -63,8 +64,16 @@ const Index = () => {
       </form>
       {state.people.map((person) => {
         return (
-          <div key={person.id}>
+          <div key={person.id} className="item">
             <h4>{person.name}</h4>
+            <button
+              onClick={() =>
+                dispatch({ type: "REMOVE_ITEM", payload: person.id })
+              }
+            >
+              {" "}
+              remove{" "}
+            </button>
           </div>
         );
       })}
