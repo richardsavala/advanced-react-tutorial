@@ -5,6 +5,7 @@ import { data } from "../../../data";
 
 const PropDrilling = () => {
   const [people, setPeople] = useState(data);
+  const removePerson = { id };
   return (
     <section>
       <h3>poop Prop Drilling</h3>
