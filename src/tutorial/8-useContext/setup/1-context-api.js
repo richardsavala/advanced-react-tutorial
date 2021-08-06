@@ -21,7 +21,7 @@ const ContextAPI = () => {
 
 const List = () => {
   const mainData = useContext(PersonContext);
-  console.log(mainData);
+
   return (
     <>
       {mainData.people.map((person) => {
