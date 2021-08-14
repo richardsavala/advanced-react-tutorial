@@ -1,26 +1,11 @@
 import React from "react";
-import { useGlobalContext } from "./context";
-
-// components
-import Navbar from "./Navbar";
-import CartContainer from "./CartContainer";
-// items
+import Setup from "./tutorial/9-custom-hooks/setup/1-fetch-example";
 
 function App() {
-  const { loading } = useGlobalContext();
-
-  if (loading) {
-    return (
-      <div className="loading">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   return (
-    <main>
-      <Navbar />
-      <CartContainer />
-    </main>
+    <div className="container">
+      <Setup />
+    </div>
   );
 }
 
