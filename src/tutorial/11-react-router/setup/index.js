@@ -21,6 +21,9 @@ const ReactRouterSetup = () => {
       <Route exact path="/people">
         <People />
       </Route>
+      <Route path="*">
+        <Error />
+      </Route>
     </Router>
   );
 };
