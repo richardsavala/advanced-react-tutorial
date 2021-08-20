@@ -34,6 +34,9 @@ const BigList = ({ products }) => {
 };
 
 const SingleProduct = ({ fields }) => {
+  useEffect(() => {
+    console.log("big list call");
+  });
   let { name, price } = fields;
   price = price / 100;
   const image = fields.image[0].url;
