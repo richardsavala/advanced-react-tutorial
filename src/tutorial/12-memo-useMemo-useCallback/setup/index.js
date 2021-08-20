@@ -23,6 +23,7 @@ const Index = () => {
 };
 
 const BigList = ({ products }) => {
+  console.log("big list call");
   return (
     <section className="products">
       {products.map((product) => {
