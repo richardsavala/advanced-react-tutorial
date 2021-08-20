@@ -22,7 +22,7 @@ const Index = () => {
   );
 };
 
-const BigList = ({ products }) => {
+const BigList = React.memo(({ products }) => {
   console.log("big list call");
   return (
     <section className="products">
@@ -31,11 +31,11 @@ const BigList = ({ products }) => {
       })}
     </section>
   );
-};
+});
 
 const SingleProduct = ({ fields }) => {
   useEffect(() => {
-    console.log("big list call");
+    console.count("single item call");
   });
   let { name, price } = fields;
   price = price / 100;
