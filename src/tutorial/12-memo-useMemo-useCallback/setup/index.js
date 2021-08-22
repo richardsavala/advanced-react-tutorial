@@ -12,17 +12,17 @@ const Index = () => {
   const [count, setCount] = useState(0);
   const [cart, setCart] = useState(0);
 
-  const addToCart = () => {
+  const addToCart = useCallback(() => {
     setCart(cart + 1);
-  };
+  }, [cart]);
   return (
     <>
       <h1>Count :{count}</h1>
       <button className="btn" onClick={() => setCount(count + 1)}>
         click me
       </button>
-      <h1 style={{ marginTop: "3rem" }}>cart:{cart}</h1>
-      <BigList products={products} />
+      <h1 style={{ marginTop: "3rem" }}>cart :{cart}</h1>
+      <BigList products={products} addToCart={addToCart} />
     </>
   );
 };
